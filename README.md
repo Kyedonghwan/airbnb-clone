@@ -1,2 +1,2 @@
-# airbnb-clone
-Creating Airbnb using Python, Django, Tailwind and more.. 
+# Airbnb-Clone
+Cloning Airbnb using Python, Django, Tailwind and more.. 
