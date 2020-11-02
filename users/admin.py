@@ -24,7 +24,7 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
 
-    list_filter = UserAdmin.list_filter + ("superhlost",)
+    list_filter = UserAdmin.list_filter + ("superhost",)
     list_display = (
         "username",
         "first_name",
