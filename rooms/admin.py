@@ -16,10 +16,17 @@ class ItemAdmin(admin.ModelAdmin):
         return obj.rooms.count()
 
 
+class PhotoInline(admin.TabularInline):
+
+    model = models.Photo
+
+
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
     """ Room Admin Definition"""
+
+    inlines = (PhotoInline,)
 
     fieldsets = (
         (
@@ -34,6 +41,8 @@ class RoomAdmin(admin.ModelAdmin):
         ("Spaces", {"fields": ("beds", "bedrooms", "baths", "guests")}),
         ("Last Details", {"fields": ("host",)}),
     )
+
+    raw_id_fields = ("host",)
 
     list_display = (
         "name",
@@ -68,6 +77,10 @@ class RoomAdmin(admin.ModelAdmin):
         "facilities",
         "house_rules",
     )
+
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        super().save_model(request,obj,form,change)
 
     def count_amenities(self, obj):
         return obj.amenities.count()
