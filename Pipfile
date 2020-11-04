@@ -11,6 +11,7 @@ black = "*"
 django = "==2.2.5"
 pillow = "*"
 django-countries = "*"
+django-seed = {index = "gnore-installed", version = "*"}
 
 [requires]
 python_version = "3.7"
