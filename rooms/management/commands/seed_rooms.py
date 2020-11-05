@@ -39,7 +39,7 @@ class Command(BaseCommand):
 
         amenities = room_models.Amenity.objects.all()
         facilities = room_models.Facility.objects.all()
-        rules = room_models.Facility.objects.all()
+        rules = room_models.HouseRule.objects.all()
 
         for pk in created_clean:
             room = room_models.Room.objects.get(pk=pk)
@@ -53,7 +53,7 @@ class Command(BaseCommand):
                 magic_number = random.randint(0, 15)
                 if magic_number % 2 == 0:
                     room.amenities.add(a)
-            for a in facilities:
+            for f in facilities:
                 magic_number = random.randint(0, 15)
                 if magic_number % 2 == 0:
                     room.facilities.add(f)
