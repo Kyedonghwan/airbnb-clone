@@ -8,7 +8,7 @@ from . import models
 
 class HomeView(ListView):
 
-    """ HombeView Defnition"""
+    """ HombeView Defnitionn"""
 
     model = models.Room
     paginate_by = 10
