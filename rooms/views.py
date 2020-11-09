@@ -1,6 +1,4 @@
-from django.views.generic import ListView
-from django.http import Http404
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from . import models
 
 # Create your views here.
@@ -22,13 +20,8 @@ class HomeView(ListView):
         return context
 
 
-def room_detail(request, pk):
-    try:
-        room = models.Room.objects.get(pk=pk)
-        pass
-    except models.Room.DoesNotExist:
-        raise Http404()
-    return render(request, "rooms/detail.html", context={"room": room})
+def RoomDetail(DetailView):
+    model = models.Room
 
 
 """
