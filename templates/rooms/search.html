@@ -4,8 +4,9 @@
 {%endblock page_title %}
 
 {% block search-bar %}
+{% endblock search-bar %}
 
-
+{% block content %}
 <form method="get" action="/rooms/search">
     <div>
         <label for="city">City</label>
@@ -94,9 +95,10 @@
     <button>Search</button>
 </form>
 
+<h3>Results </h3>
 
-{% endblock search-bar %}
-{% block content %}
-<h2>Search!</h2>
-<h4>Searching by {{city}}</h4>
+{% for room in rooms %}
+    <h3>{{room.name}}</h3>
+{% endfor %}
+
 {%endblock content %}
