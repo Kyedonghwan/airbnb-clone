@@ -35,14 +35,12 @@ class SignUpForm(forms.ModelForm):
         else:
             return password
 
-    print("a")
-
     def save(self, *args, **kwargs):
         user = super().save(commit=False)
         email = self.cleaned_data.get("email")
         password = self.cleaned_data.get("password")
+        print(user.username)
         user.username = email
-        print("a")
-        print(user.username, email, password)
+        print(user.username)
         user.set_password(password)
         user.save()
