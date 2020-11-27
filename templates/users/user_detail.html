@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-    Profile
+    {{user_obj.first_name}}'s Profile
 {% endblock page_title %}
 
 {% block content %}
 
-   {{user_obj.first_name}}
+   <h1>{{user_obj.first_name}}</h1>
+    {% if user == user.obj %}
+    <a href="{% url 'users:update'%}">Edit Profile </a>
+    {% endif %}
+<a href="{% url 'users:update'%}">Edit Profile </a>
+    {% if user_obj.rooms.count > 0 %}
+        <h3> {{user_obj.first_name}}'s rooms </h3>
+        <ul>
+            {% for room in user_obj.rooms.all %}
+                <li>{{ room.name }} </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3> No room :(</h3>
+    {% endif %}
 
 {% endblock content %} 
