@@ -7,10 +7,10 @@
 {% block content %}
 
    <h1>{{user_obj.first_name}}</h1>
-    {% if user == user.obj %}
+    {% if user == user_obj %}
     <a href="{% url 'users:update'%}">Edit Profile </a>
     {% endif %}
-<a href="{% url 'users:update'%}">Edit Profile </a>
+
     {% if user_obj.rooms.count > 0 %}
         <h3> {{user_obj.first_name}}'s rooms </h3>
         <ul>
@@ -23,3 +23,4 @@
     {% endif %}
 
 {% endblock content %} 
+

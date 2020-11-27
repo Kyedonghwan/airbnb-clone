@@ -1,13 +1,24 @@
-<form method="POST" action="{% url 'users:update' %}">
-    {% csrf_token %}
-    
-    {% if form.non_field_errors %}
-        {% for error in form.non_field_errors %}
-            <span>{{error}}</span> 
-        {% endfor %}
-    {% endif %}
-    
-    {{form}}
-    
-    <button>Update Profile</button>
-</form>
+{%extends "base.html"%}
+
+{% block page_title%}
+     Sign Up
+{%endblock page_title%}
+
+    {% block content %}
+    <form method="POST" action="{% url 'users:update' %}">
+        {% csrf_token %}
+        
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <span>{{error}}</span> 
+            {% endfor %}
+        {% endif %}
+        
+        {{form}}
+        
+        <button>Update Profile</button>
+    </form>
+
+    <a href="{% url 'users:password'%}">Update Password </a>
+
+{%endblock content%}
