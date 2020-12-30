@@ -1,11 +1,11 @@
 
     
-    <ul>
-        {% if user.is_authenticated %}
-            <li><a href="{{user.get_absolute_url}}">Profile</a></li>
-            <li><a href="{% url 'users:logout' %}">Log out</a></li>
-        {% else %}
-            <li><a href="{% url 'users:login' %}">Login</a></li>
-            <li><a href="{% url 'users:signup' %}">Sign Up</a></li>
-        {% endif%}
-    </ul>
+<ul class="flex items-center text-sm font-medium h-full">
+    {% if user.is_authenticated %}
+        <li class="nav_link ml-8 border-b-2 border-white h-full hover:border-blue-400 flex items-center"><a class="py-10 px-5" href="{{user.get_absolute_url}}">Profile</a></li>
+        <li class="nav_link ml-8 border-b-2 border-white h-full hover:border-blue-400 flex items-center"><a class="py-10 px-5" href="{% url 'users:logout' %}">Log out</a></li>
+    {% else %}
+        <li class="nav_link ml-8 border-b-2 border-white h-full hover:border-blue-400 flex items-center"><a class="py-10 px-5" href="{% url 'users:login' %}">Login</a></li>
+        <li class="nav_link ml-8 border-b-2 border-white h-full hover:border-blue-400 flex items-center"><a class="py-10 px-5" href="{% url 'users:signup' %}">Sign Up</a></li>
+    {% endif %}
+</ul>

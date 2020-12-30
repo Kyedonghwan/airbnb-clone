@@ -5,10 +5,10 @@ Home
 {%endblock page_title%}
 
 {% block search-bar %}
-    <form method="get" action="{% url "rooms:search" %}">
-        <input class="border px-2 px-1 rounded-sm" name="city" placeholder="Search By City" />
+    <form method="get" action="{% url "rooms:search" %}" class="w-9/12">
+        <input class="search-box border text-normal w-full font-medium placeholder-gray-500 px-5 py-3 rounded-sm w-64 shadow-md hover:shadow-lg focus:outline-none" name="city" placeholder="Search By City" />
     </form>
-    {% endblock search-bar %}
+{% endblock search-bar %}
     
 {% block content %}
 
