@@ -11,23 +11,27 @@ Home
 {% endblock search-bar %}
     
 {% block content %}
-    <div class="container rounded-xl mx-auto bg-gray-800  h-50vh mt-32 mb-24 bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1536315238512-4c8cebdaaf93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop)">
-        {% for room in rooms %}
+    <div class="container mx-auto">
+        <div class="rounded-xl bg-gray-800  -mx-40  h-50vh mt-32 mb-24 bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1536315238512-4c8cebdaaf93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop)"></div>
+        <div class="flex flex-wrap -mx-40">
+        {% for room in rooms  %}
             {% include 'partials/room_card.html' with room=room %}
         {% endfor %}
-
+        </div>
         <h5>
-            {% if page_obj.has_previous%}
+        {% if page_obj.has_previous %}
             <a href="?page={{page_obj.previous_page_number}}">Previous</a>
-            {%endif%}
-            Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
-            {% if page_obj.has_next%}
+        {% endif %}
+    
+        Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+        
+        {% if page_obj.has_next  %}
             <a href="?page={{page_obj.next_page_number}}">Next</a>
-            {%endif%}
-
-
+        {% endif %}
         </h5>
     </div>
+
+    
 
 
 
