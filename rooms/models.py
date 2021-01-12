@@ -106,7 +106,7 @@ class Room(core_models.TimeStampedModel):
 
     def first_photo(self):
         (photo,) = self.photos.all()[:1]
-        return photo.file.url
+        print(photo.file.url)
 
 
 # Create your models here.
